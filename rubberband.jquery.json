@@ -1,0 +1,30 @@
+{
+	"name": "scout",
+	"title": "Scout",
+	"description": "A jQuery plugin for easily tracking Google Analytics Events. ",
+	"keywords": [
+		"analytics",
+		"events",
+		"html5",
+		"utility",
+		"benplum"
+	],
+	"version": "0.0.1",
+	"author": {
+		"name": "Ben Plum",
+		"url": "http://www.benplum.com"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://www.opensource.org/licenses/mit-license.php"
+		}
+	],
+	"docs": "http://www.benplum.com/projects/scout/",
+	"demo": "http://www.benplum.com/projects/scout/",
+	"download": "https://github.com/benplum/scout",
+	"bugs": "https://github.com/benplum/scout/issues",
+	"dependencies": {
+		"jquery": ">=1.7"
+	}
+}

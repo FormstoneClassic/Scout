@@ -1,17 +1,12 @@
 /*
  * Scout Plugin - Simple Google Analytics Events
  * @author Ben Plum
- * @version 0.0.1
+ * @version 0.0.2
  *
  * Copyright (c) 2013 Ben Plum <mr@benplum.com>
  * Released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
  *
  */
-
-// Usage:
-//  <div scout-event="category, action, label, value, noninteraction" />
-//  <div scout-stop="true" />
-//  $.scout(category, action, label, value, noninteraction);
 
 if (jQuery) (function($) {
 	
@@ -26,9 +21,9 @@ if (jQuery) (function($) {
 		$.extend(options, opts);
 		
 		// Attach Scout events 
-		if (!$("body").attr("scouting")) {
-			$("body").attr("scouting", "true")
-					 .on("click.scout", "[scout-event]", _track);
+		if (!$("body").data("scouting")) {
+			$("body").data("scouting", true)
+					 .on("click.scout", "[data-scout-event]", _track);
 		}
 	}
 	
@@ -38,7 +33,7 @@ if (jQuery) (function($) {
 		
 		var $target = $(this),
 			url = $target.attr("href"),
-			data = $target.attr("scout-event").split(",");
+			data = $target.data("scout-event").split(",");
 		
 		// Trim that data
 		for (var i in data) {
@@ -49,7 +44,7 @@ if (jQuery) (function($) {
 		_push(data[0], data[1], (url || data[2]), data[3], data[4]);
 		
 		// If active link, launch that ish!
-		if (url && !$target.attr("scout-stop")) {
+		if (url && !$target.data("scout-stop")) {
 			// Delay based on Google's outbound link handler: 
 			// http://support.google.com/analytics/bin/answer.py?hl=en&answer=1136920
 			setTimeout(function() { 

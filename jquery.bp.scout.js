@@ -1,7 +1,7 @@
 /*
  * Scout Plugin - Simple Google Analytics Events
  * @author Ben Plum
- * @version 0.0.2
+ * @version 0.0.3
  *
  * Copyright (c) 2013 Ben Plum <mr@benplum.com>
  * Released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
@@ -12,7 +12,8 @@ if (jQuery) (function($) {
 	
 	// Default Options
 	var options = {
-		delay: 100
+		delay: 100,
+		maxScroll: {} // maxscroll plugin
 	};
 	
 	// Initialize
@@ -24,6 +25,10 @@ if (jQuery) (function($) {
 		if (!$("body").data("scouting")) {
 			$("body").data("scouting", true)
 					 .on("click.scout", "[data-scout-event]", _track);
+		}
+		
+		for (var i in $.scout.plugins) {
+			$.scout.plugins[i]( options[i] );
 		}
 	}
 	
@@ -73,4 +78,5 @@ if (jQuery) (function($) {
 			_init.apply(this, arguments);
 		}
 	};
+	$.scout.plugins = {};
 })(jQuery);

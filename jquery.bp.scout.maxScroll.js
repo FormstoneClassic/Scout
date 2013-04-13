@@ -1,7 +1,7 @@
 /*
- * Scout - Scroll Plugin - Track user scroll positions
+ * Scout Plugin - Scroll Extension - Track user scroll positions
  * @author Ben Plum
- * @version 0.0.2
+ * @version 0.0.3
  *
  * Copyright (c) 2013 Ben Plum <mr@benplum.com>
  * Released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
@@ -26,7 +26,7 @@ if (jQuery) (function($) {
 		
 		// Bind events
 		$window.on("scroll.scout-maxscroll", _onScroll)
-			   .on("unload.scout-maxscroll", _pushScroll);
+			   .on("unload.scout-maxscroll, pronto.request", _pushScroll);
 		
 		_onScroll();
 	}
@@ -45,7 +45,7 @@ if (jQuery) (function($) {
 		_clearTimer();
 		// Push event
 		var properties = _getProperties();
-		$.scout("ScrollPosition", "MaxPosition:"+properties.device, properties.path, properties.position);
+		$.scout("ScrollPosition", "Device:"+properties.device, properties.path, properties.position);
 	}
 	
 	function _getProperties() {
@@ -82,7 +82,7 @@ if (jQuery) (function($) {
 	
 	if ($.scout) {
 		// Define Plugin 
-		$.scout.plugins.maxScroll = function(opts) {
+		$.scout.extensions.maxScroll = function(opts) {
 			_init(opts);
 		};
 	}

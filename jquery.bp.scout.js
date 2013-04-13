@@ -1,7 +1,7 @@
 /*
  * Scout Plugin - Simple Google Analytics Events
  * @author Ben Plum
- * @version 0.0.3
+ * @version 0.0.4
  *
  * Copyright (c) 2013 Ben Plum <mr@benplum.com>
  * Released under the MIT License <http://www.opensource.org/licenses/mit-license.php>

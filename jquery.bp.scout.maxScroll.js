@@ -1,7 +1,7 @@
 /*
  * Scout - Scroll Plugin - Track user scroll positions
  * @author Ben Plum
- * @version 0.0.1
+ * @version 0.0.2
  *
  * Copyright (c) 2013 Ben Plum <mr@benplum.com>
  * Released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
@@ -41,22 +41,22 @@ if (jQuery) (function($) {
 		eventTimer = setTimeout(_pushScroll, (1000 * options.time));
 	}
 	
-	function _pushScroll(properties) {
+	function _pushScroll() {
 		_clearTimer();
 		// Push event
 		var properties = _getProperties();
-		$.scout("scroll-position", "max", properties.device, properties.position);
+		$.scout("ScrollPosition", "MaxPosition:"+properties.device, properties.path, properties.position);
 	}
 	
 	function _getProperties() {
 		var windowWidth = $window.width(),
 			windowHeight = $window.height(),
 			documentHeight = $document.outerHeight(false),
-			device = "mobile";
+			device = "Mobile";
 		
 		// Device class
-		if (windowWidth > 460) device = "tablet";
-		if (windowWidth > 740) device = "desktop";
+		if (windowWidth > 460) device = "Tablet";
+		if (windowWidth > 740) device = "Desktop";
 		
 		// Final percentage
 		var position = Math.floor((scrollMax / (documentHeight - windowHeight)) * 100);

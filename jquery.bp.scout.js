@@ -66,7 +66,7 @@ if (jQuery) (function($) {
 	// Push event to Google:
 	// https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide
 	function _push(category, action, label, value, noninteraction) {
-		_gaq = _gaq || [];
+		var _gaq = _gaq || [];
 		_gaq.push(['_trackEvent', category, action, label, value, noninteraction]);
 	}
 	

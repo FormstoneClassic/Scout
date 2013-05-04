@@ -1,7 +1,7 @@
 /*
  * Scout Plugin - Simple Google Analytics Events
  * @author Ben Plum
- * @version 0.0.5
+ * @version 0.0.6
  *
  * Copyright (c) 2013 Ben Plum <mr@benplum.com>
  * Released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
@@ -66,7 +66,9 @@ if (jQuery) (function($) {
 	// Push event to Google:
 	// https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide
 	function _push(category, action, label, value, noninteraction) {
-		var _gaq = _gaq || [];
+		if (typeof _gaq == "undefined") {
+			_gaq = [];
+		}
 		_gaq.push(['_trackEvent', category, action, label, value, noninteraction]);
 	}
 	

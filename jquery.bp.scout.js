@@ -1,7 +1,7 @@
 /*
  * Scout Plugin - Simple Google Analytics Events
  * @author Ben Plum
- * @version 0.0.6
+ * @version 0.1.0
  *
  * Copyright (c) 2013 Ben Plum <mr@benplum.com>
  * Released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
@@ -13,18 +13,25 @@ if (jQuery) (function($) {
 	// Default Options
 	var options = {
 		delay: 100,
-		extensions: {} // extension options
+		extensions: {}, // extension options
+		filetypes: /\.(zip|exe|dmg|pdf|doc.*|xls.*|ppt.*|mp3|txt|rar|wma|mov|avi|wmv|flv|wav)$/i
 	};
+	
+	var $body;
 	
 	// Initialize
 	function _init(opts) {
+		$body = $("body");
+		
 		// Extend 
 		$.extend(options, opts);
 		
 		// Attach Scout events 
-		if (!$("body").data("scouting")) {
-			$("body").data("scouting", true)
-					 .on("click.scout", "[data-scout-event]", _track);
+		if (!$body.data("scouting")) {
+			$body.find("a").not("[data-scout-event]").each(_buildEvent);
+			
+			$body.data("scouting", true)
+				 .on("click.scout", "*[data-scout-event]", _track);
 			
 			for (var i in $.scout.extensions) {
 				$.scout.extensions[i]( options.extensions[i] || null );
@@ -46,7 +53,7 @@ if (jQuery) (function($) {
 		}
 		
 		// Push data
-		_push(data[0], data[1], (url || data[2]), data[3], data[4]);
+		_push(data[0], data[1], (data[2] || url), data[3], data[4]);
 		
 		// If active link, launch that ish!
 		if (url && !$target.data("scout-stop")) {
@@ -61,6 +68,31 @@ if (jQuery) (function($) {
 				}
 			}, options.delay);
 		}
+	}
+	
+	// Build events
+	function _buildEvent() {
+		var $target = $(this),
+			href = (typeof($target.attr("href")) != "undefined") ? $target.attr("href") :"",
+			internal = href.match(document.domain.split('.').reverse()[1] + '.' + document.domain.split('.').reverse()[0]),
+			eventData;
+		
+		if (href.match(/^mailto\:/i)) {
+			// Email
+			eventData = "Email, Click, " + href.replace(/^mailto\:/i, '');
+		} else if (href.match(/^tel\:/i)) {
+			// Action
+			eventData = "Telephone, Click, " + href.replace(/^tel\:/i, '');
+		} else if (href.match(options.filetypes)) {
+			// Files
+			var extension = (/[.]/.exec(href)) ? /[^.]+$/.exec(href) : undefined;
+			eventData = "File, Download:" + extension[0] + ", " + href.replace(/ /g,"-");
+		} else if (href.match(/^https?\:/i) && !internal) {
+			// External Link
+			eventData = "ExternalLink, Click, " + href.replace(/^https?\:\/\//i, '');
+		}
+		
+		$target.attr("data-scout-event", eventData);
 	}
 	
 	// Push event to Google:

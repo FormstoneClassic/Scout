@@ -2,12 +2,12 @@
 	"name": "Scout",
 	"version": "0.1.0",
 	"main": [
-		"jquery.bp.scout.min.js",
-		"jquery.bp.scout.macScroll.min.js"
+		"./jquery.bp.scout.min.js",
+		"./jquery.bp.scout.macScroll.min.js"
 	],
 	"ignore": [
-		"*.md",
-		"*.json"
+		"./*.md",
+		"./*.json"
 	],
 	"dependencies": {
 		"jquery": ">= 1.7.0"

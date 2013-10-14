@@ -1,0 +1,15 @@
+{
+	"name": "Scout",
+	"version": "0.1.0",
+	"main": [
+		"jquery.bp.wallpaper.css",
+		"jquery.bp.wallpaper.min.js"
+	],
+	"ignore": [
+		"wallpaper.jquery.json"
+	],
+	"dependencies": {
+		"jquery": ">= 1.7.0"
+	},
+	"devDependencies": {}
+}

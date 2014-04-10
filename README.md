@@ -1,8 +1,10 @@
-Scout
-=====
+<a href="http://gruntjs.com" target="_blank"><img src="https://cdn.gruntjs.com/builtwith.png" alt="Built with Grunt"></a> 
+# Scout 
 
-A jQuery plugin for easily tracking Google Analytics Events
+A jQuery plugin for pushing Google Analytics Events. Part of the Formstone Library. 
 
-[Documentation and Examples](http://www.benplum.com/projects/scout/)
+- [Demo](http://formstone.it/components/Scout/demo/index.html) 
+- [Documentation](http://formstone.it/scout/) 
 
-Bower Support: `bower install Scout`
+#### Bower Support 
+`bower install Scout`

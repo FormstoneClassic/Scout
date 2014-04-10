@@ -1,30 +1,20 @@
 {
-	"name": "Scout",
-	"version": "0.1.1",
-	"description": "A jQuery plugin for easily tracking Google Analytics Events.",
-	"keywords": [
-		"javascript",
-		"jquery",
-		"analytics",
-		"events",
-		"tracking",
-		"utility",
-		"benplum"
-	],
-	"authors": [
-		"Ben Plum"
-	],
-	"license": "MIT",
-	"homepage": "http://www.benplum.com/projects/scout/",
-	"main": [
-		"jquery.bp.scout.min.js",
-		"jquery.bp.scout.maxScroll.min.js"
-	],
-	"ignore": [
-		"*.json"
-	],
-	"dependencies": {
-		"jquery": ">= 1.7.0"
-	},
-	"devDependencies": {}
+  "name": "Scout",
+  "version": "3.0.0",
+  "description": "A jQuery plugin for pushing Google Analytics Events. Part of the Formstone Library.",
+  "author": {
+    "name": "Ben Plum",
+    "email": "mr@benplum.com",
+    "url": "http://www.benplum.com"
+  },
+  "license": "MIT",
+  "homepage": "http://formstone.it/scout/",
+  "main": [
+    "jquery.fs.scout.js"
+  ],
+  "ignore": [
+    "*.jquery.json",
+    "Gruntfile.js",
+    "src/"
+  ]
 }

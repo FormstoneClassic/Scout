@@ -1,5 +1,5 @@
 /* 
- * Scout v3.0.0 - 2014-04-10 
+ * Scout v3.0.1 - 2014-04-10 
  * A jQuery plugin for pushing Google Analytics Events. Part of the Formstone Library. 
  * http://formstone.it/scout/ 
  * 
@@ -135,8 +135,12 @@
 		if (options.universal) {
 			if (typeof window.ga === "function") {
 				// Universal Analytics
+
+				// https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference
 				var event = {
-					"hitType": "event"
+					"hitType": "event",
+					"location": window.location,
+					"title": window.document.title
 				};
 
 				if (category) {

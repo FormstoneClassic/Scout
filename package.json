@@ -2,7 +2,7 @@
   "name": "Scout",
   "id": "scout",
   "codename": "jquery.fs.scout",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A jQuery plugin for pushing Google Analytics Events. Part of the Formstone Library.",
   "keywords": [
 	"analytics",

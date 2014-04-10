@@ -127,8 +127,12 @@
 		if (options.universal) {
 			if (typeof window.ga === "function") {
 				// Universal Analytics
+
+				// https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference
 				var event = {
-					"hitType": "event"
+					"hitType": "event",
+					"location": window.location,
+					"title": window.document.title
 				};
 
 				if (category) {

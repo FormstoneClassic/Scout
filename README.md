@@ -3,7 +3,6 @@
 
 A jQuery plugin for pushing Google Analytics Events. Part of the Formstone Library. 
 
-- [Demo](http://formstone.it/components/Scout/demo/index.html) 
 - [Documentation](http://formstone.it/scout/) 
 
 #### Bower Support 

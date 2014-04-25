@@ -2,7 +2,7 @@
   "name": "Scout",
   "id": "scout",
   "codename": "jquery.fs.scout",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "A jQuery plugin for pushing Google Analytics Events. Part of the Formstone Library.",
   "keywords": [
 	"analytics",
@@ -19,7 +19,6 @@
     "url": "https://github.com/benplum/Scout"
   },
   "homepage": "http://formstone.it/scout/",
-  "demo": "http://formstone.it/components/Scout/demo/index.html",
   "license": "MIT",
   "author": {
     "name": "Ben Plum",

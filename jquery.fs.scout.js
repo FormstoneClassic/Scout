@@ -1,5 +1,5 @@
 /* 
- * Scout v3.1.1 - 2014-04-28 
+ * Scout v3.1.2 - 2014-04-28 
  * A jQuery plugin for pushing Google Analytics Events. Part of the Formstone Library. 
  * http://formstone.it/scout/ 
  * 
@@ -90,8 +90,9 @@
 	 */
 	function _buildEvent() {
 		var $target = $(this),
-			href = (typeof($target.attr("href")) !== "undefined") ? $target.attr("href") : "",
-			internal = href.match(document.domain.split(".").reverse()[1] + "." + document.domain.split(".").reverse()[0]),
+			href = (typeof $target[0].href !== "undefined") ? $target[0].href : "",
+			domain = document.domain.split(".").reverse(),
+			internal = href.match(domain[1] + "." + domain[0]) !== null,
 			eventData;
 
 		if (href.match(/^mailto\:/i)) {
@@ -109,7 +110,9 @@
 			eventData = "ExternalLink, Click, " + href;
 		}
 
-		$target.attr("data-scout-event", eventData);
+		if (eventData) {
+			$target.attr("data-scout-event", eventData);
+		}
 	}
 
 	/**
@@ -144,8 +147,8 @@
 			}
 
 			// If active link, launch that ish!
-			if (!$target.data("scout-stop")) {
-				var href = (typeof($target.attr("href")) !== "undefined") ? $target.attr("href") : "",
+			if (!$target.attr("data-scout-stop")) {
+				var href = (typeof $target[0].href !== "undefined") ? $target[0].href : "",
 					url = (!href.match(/^mailto\:/i) && !href.match(/^tel\:/i) && href.indexOf(":") < 0) ? window.location.protocol + "//" + window.location.hostname + "/" + href : href;
 
 				if (href !== "") {

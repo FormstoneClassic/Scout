@@ -139,7 +139,7 @@
 			}
 
 			// If active link, launch that ish!
-			if (!$target.attr("data-scout-stop")) {
+			if (typeof $target !== "undefined" && !$target.attr("data-scout-stop")) {
 				var href = (typeof $target[0].href !== "undefined") ? $target[0].href : "",
 					url = (!href.match(/^mailto\:/i) && !href.match(/^tel\:/i) && href.indexOf(":") < 0) ? window.location.protocol + "//" + window.location.hostname + "/" + href : href;
 

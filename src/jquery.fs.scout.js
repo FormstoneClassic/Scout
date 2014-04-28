@@ -82,7 +82,7 @@
 	 */
 	function _buildEvent() {
 		var $target = $(this),
-			href = (typeof($target.attr("href")) !== "undefined") ? $target.attr("href") :"",
+			href = (typeof($target.attr("href")) !== "undefined") ? $target.attr("href") : "",
 			internal = href.match(document.domain.split(".").reverse()[1] + "." + document.domain.split(".").reverse()[0]),
 			eventData;
 
@@ -96,9 +96,9 @@
 			// Files
 			var extension = (/[.]/.exec(href)) ? /[^.]+$/.exec(href) : undefined;
 			eventData = "File, Download:" + extension[0] + ", " + href.replace(/ /g,"-");
-		} else if (href.match(/^https?\:/i) && !internal) {
+		} else if (!internal) {
 			// External Link
-			eventData = "ExternalLink, Click, " + href.replace(/^https?\:\/\//i, "");
+			eventData = "ExternalLink, Click, " + href;
 		}
 
 		$target.attr("data-scout-event", eventData);
@@ -136,16 +136,19 @@
 			}
 
 			// If active link, launch that ish!
-			if (label && !$target.data("scout-stop")) {
-				var url = (label.indexOf("://") < 0) ? window.location.protocol + "//" + window.location.hostname + "/" + label : label;
+			if (!$target.data("scout-stop")) {
+				var href = (typeof($target.attr("href")) !== "undefined") ? $target.attr("href") : "",
+					url = (!href.match(/^mailto\:/i) && !href.match(/^tel\:/i) && href.indexOf(":") < 0) ? window.location.protocol + "//" + window.location.hostname + "/" + href : href;
 
-				// Check window target
-				if ($target.attr("target")) {
-					window.open(url, $target.attr("target"));
-				} else {
-					event["hitCallback"] = function() {
-						document.location = url;
-					};
+				if (href !== "") {
+					// Check window target
+					if ($target.attr("target")) {
+						window.open(url, $target.attr("target"));
+					} else {
+						event["hitCallback"] = function() {
+							document.location = url;
+						};
+					}
 				}
 			}
 

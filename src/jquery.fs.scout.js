@@ -58,21 +58,24 @@
 	 * @param e [object] "Event data"
 	 */
 	function _track(e) {
-		e.preventDefault();
+		// Universal Analytics
+		if (typeof window.ga === "function") {
+			e.preventDefault();
 
-		var $target = $(this),
-			url = $target.attr("href"),
-			data = $target.data("scout-event").split(",");
+			var $target = $(this),
+				url = $target.attr("href"),
+				data = $target.data("scout-event").split(",");
 
-		// Trim that data
-		for (var i in data) {
-			if (data.hasOwnProperty(i)) {
-				data[i] = $.trim(data[i]);
+			// Trim that data
+			for (var i in data) {
+				if (data.hasOwnProperty(i)) {
+					data[i] = $.trim(data[i]);
+				}
 			}
-		}
 
-		// Push data
-		_push(data[0], data[1], (data[2] || url), data[3], data[4], $target);
+			// Push data
+			_push(data[0], data[1], (data[2] || url), data[3], data[4], $target);
+		}
 	}
 
 	/**

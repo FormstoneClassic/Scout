@@ -1,9 +1,9 @@
 /* 
- * Scout v3.1.4 - 2014-05-05 
+ * Scout v3.1.4 - 2015-04-04 
  * A jQuery plugin for pushing Google Analytics Events. Part of the Formstone Library. 
- * http://formstone.it/scout/ 
+ * http://classic.formstone.it/scout/ 
  * 
- * Copyright 2014 Ben Plum; MIT Licensed 
+ * Copyright 2015 Ben Plum; MIT Licensed 
  */ 
 
 ;(function ($, window) {

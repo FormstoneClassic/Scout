@@ -8,7 +8,7 @@
     "url": "http://www.benplum.com"
   },
   "license": "MIT",
-  "homepage": "http://formstone.it/scout/",
+  "homepage": "http://classic.formstone.it/scout/",
   "main": [
     "jquery.fs.scout.js"
   ],

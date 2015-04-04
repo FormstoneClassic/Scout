@@ -11,14 +11,13 @@
 	"tracking",
 	"javascript",
 	"jquery",
-	"formstone",
-	"benplum"
+	"formstone"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/benplum/Scout"
+    "url": "https://github.com/FormstoneClassic/Scout"
   },
-  "homepage": "http://formstone.it/scout/",
+  "homepage": "http://classic.formstone.it/scout/",
   "license": "MIT",
   "author": {
     "name": "Ben Plum",

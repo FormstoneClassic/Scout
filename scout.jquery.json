@@ -24,12 +24,11 @@
     "tracking",
     "javascript",
     "jquery",
-    "formstone",
-    "benplum"
+    "formstone"
   ],
-  "docs": "http://formstone.it/scout/",
-  "demo": "http://formstone.it/scout/",
-  "download": "https://github.com/benplum/Scout",
-  "bugs": "https://github.com/benplum/Scout/issues",
-  "homepage": "http://formstone.it/scout/"
+  "docs": "http://classic.formstone.it/scout/",
+  "demo": "http://classic.formstone.it/scout/",
+  "download": "https://github.com/FormstoneClassic/Scout",
+  "bugs": "https://github.com/FormstoneClassic/Scout/issues",
+  "homepage": "http://classic.formstone.it/scout/"
 }
